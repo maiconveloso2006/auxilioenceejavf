@@ -11,7 +11,7 @@ const { fileURLToPath } = require("url");
 dotenv.config();
 
 // para mudar a porta do servidor
-const Port = process.env.API_PORT || 3000;
+const Port = process.env.PORT || process.env.API_PORT || 3000;
 console.log( process.env.DB_TYPE) ;
 
 const app = express();
