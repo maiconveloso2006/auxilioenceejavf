@@ -12,6 +12,10 @@ async function GetById(req, res) {
     return materiasModel.GetById(req.params.id);
 }
 
+async function GetComProgresso(req, res) {
+    return materiasModel.GetComProgresso(req.params.userId);
+}
+
 async function Post(req, res) {
     const payload = req.body;
     if (!payload || !payload.nome_materia) {
@@ -29,4 +33,4 @@ async function Delete(req, res) {
     return materiasModel.Delete(req.params.id);
 }
 
-module.exports = { Get, GetById, Post, Put, Delete };
+module.exports = { Get, GetById, GetComProgresso, Post, Put, Delete };

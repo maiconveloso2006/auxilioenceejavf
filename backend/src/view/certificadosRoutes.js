@@ -1,8 +1,8 @@
 const Routes = require("express");
-const controller = require("../controller/materiasController");
+const controller = require("../controller/certificadosController");
 
 const routes = Routes();
-const ep = "/api/materias";
+const ep = "/api/usuarios";
 
 function handle(fn) {
     return async (req, res) => {
@@ -18,11 +18,13 @@ function handle(fn) {
     };
 }
 
-routes.get(ep, handle(controller.Get));
-routes.get(`${ep}/progresso/:userId`, handle(controller.GetComProgresso));
-routes.get(`${ep}/:id`, handle(controller.GetById));
-routes.post(ep, handle(controller.Post));
-routes.put(`${ep}/:id`, handle(controller.Put));
-routes.delete(`${ep}/:id`, handle(controller.Delete));
+// GET    /api/usuarios/:userId/certificados
+routes.get(`${ep}/:userId/certificados`, handle(controller.GetByUsuario));
+
+// POST   /api/usuarios/:userId/certificados
+routes.post(`${ep}/:userId/certificados`, handle(controller.Post));
+
+// DELETE /api/usuarios/:userId/certificados/:id
+routes.delete(`${ep}/:userId/certificados/:id`, handle(controller.Delete));
 
 module.exports = routes;

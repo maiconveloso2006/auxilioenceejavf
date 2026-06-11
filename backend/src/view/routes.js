@@ -19,6 +19,8 @@ const simuladosRoutes      = require("./simuladosRoutes");
 const notificacoesRoutes   = require("./notificacoesRoutes");
 const rankingRoutes        = require("./rankingRoutes");
 const configuracoesRoutes  = require("./configuracoesRoutes");
+const certificadosRoutes   = require("./certificadosRoutes");
+const conquistasRoutes     = require("./conquistasRoutes");
 
 const routes = Routes();
 
@@ -40,6 +42,8 @@ routes.use(simuladosRoutes);
 routes.use(notificacoesRoutes);
 routes.use(rankingRoutes);
 routes.use(configuracoesRoutes);
+routes.use(certificadosRoutes);
+routes.use(conquistasRoutes);
 
 routes.get("/test", (req, res) => {
     res.status(200).json({ message: "servidor Rodando ..." });
